@@ -1,0 +1,37 @@
+﻿<?xml version="1.0"?>
+<project name="MPTC" default="build" basedir=".">
+
+	<property name="basedir" value="${project::get-base-directory()}"/>
+	<property name="builddir" value="${basedir}\Build"/>
+
+        <target name="clean" description="remove all generated files">
+		<delete dir="${builddir}" />
+        </target>
+
+	<target name="prepare">
+		<mkdir dir="${builddir}"/>
+	</target>
+
+	<target name="compile" depends="clean, prepare">
+		<!-- 16F84 -->
+		<exec program="gpasm">
+			<arg value="-p"/>
+			<arg value="p16f84"/>
+			<arg value="-o"/>
+			<arg value="${builddir}\main84.hex"/>
+			<arg value="${basedir}\main.asm"/>
+		</exec>
+		<!-- 16F628 -->
+		<exec program="gpasm">
+			<arg value="-p"/>
+			<arg value="p16f628"/>
+			<arg value="-o"/>
+			<arg value="${builddir}\main628.hex"/>
+			<arg value="${basedir}\main.asm"/>
+		</exec>
+	</target>
+
+        <target name="build" depends="compile" description="Compile">
+        </target>
+
+</project>

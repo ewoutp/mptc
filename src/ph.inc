@@ -31,22 +31,6 @@
 ; ================================================
 
 ; ================================================
-; States
-; ================================================
-
-#define ST_BEGIN	1	; A normal loop, no bytes have been received
-#define ST_SPEED1	2	; The first byte of a speed command has been received
-#define ST_SPEED2	3	; The first & second bytes of a speed command has been received
-
-#define ST_SWITCHDATA1	4	; The first byte of a switch data command has been received
-#define ST_SWITCHDATA2	5	; The first & second byte of a switch data command has been received
-
-#define ST_DCCCMD1	6	; The first byte of a dcc command (2 or 3 byte) has been received
-#define ST_DCCCMD2	7	; The first & second byte of a dcc command (2 or 3 byte) has been received
-#define ST_DCCCMD3	8	; The first, second & third byte of a dcc command (2 or 3 byte) has been received
-#define ST_DCCCMD4	9	; The first, second, third & fourth byte of a dcc command (2 or 3 byte) has been received
-
-; ================================================
 ; Protocol handler macro's
 ; ================================================
 
