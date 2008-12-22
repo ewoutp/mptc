@@ -161,6 +161,8 @@ REG_MAX			equ FB_CHANGED_MAX	; Just a dummy label for compile time checks
 #define DCC_DATA3_BIT	1
 #define DCC_LONGPR_BIT	2
 
+        include "ph-state.inc"
+
 ; ================================================
 ; General macro's
 ; ================================================
