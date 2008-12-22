@@ -1,0 +1,38 @@
+#
+# lp_cfg for BR870 and UniprogIV (ludpipo style programmer)
+#
+#The prog84 programmer requires the following bits to be named:
+#  power --- set to 1 when the programmer wants the PIC's Vdd = +5v
+#  mclr  --- set to 1 when the programmer wants the PIC's /MCLR = +13v
+#  clock --- used to clock data into the PIC (connect to PIC pin 12)
+#  data  --- used to write data (pin 13)
+#  data_f -- sense return for data (pin 13)
+#  clock_f - sense return for clock (pin 12)
+
+#  rb6   --- synonym for "clock"
+#  rb7   --- synonym for "data"
+#  rb6_f --- synonym for "clock_f"
+#  rb7_f --- synonym for "data_f"
+
+#but first the type: serial / parallel / usb
+
+port serial 
+
+### for serial port:
+base= 0x3f8	# com1, ttyS0
+#base= 0x2f8	# com2, ttyS1
+#base= 0x3e8	# com3, ttyS2
+#base= 0x2e8	# com4, ttyS3
+#dos only:
+loop = 15
+
+#settings for UniprogIV / BR870 and similar seriel PIC programmers.
+
+no_power_C4C8 = 0
+
+power: TxD
+mclr: TxD
+data: DTR
+data_f: CTS
+clock: RTS
+
